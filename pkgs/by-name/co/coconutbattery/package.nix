@@ -5,15 +5,16 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "coconutbattery";
-  version = "3.9.16,278173DA";
+  version = "3.9.17";
 
   src = fetchzip {
     url =
       let
-        versionString = lib.replaceStrings [ "." "," ] [ "" "_" ] finalAttrs.version;
+        rev = "C29E0D4F";
+        versionString = lib.replaceStrings ["."][""] finalAttrs.version;
       in
-      "https://coconut-flavour.com/downloads/coconutBattery_${versionString}.zip";
-    hash = "sha256-0RZK4qXgsUB6oxx4Kn0v5+wGyTIrQQFZIMi1eRe1twE=";
+      "https://www.coconut-flavour.com/downloads/coconutBattery_${versionString}_${rev}.zip";
+    hash = "sha256-OkN+9s+YChMOFA/OHOeHUdFvk9EoUAGxz4/uDhSm/UU=";
   };
 
   dontPatch = true;
